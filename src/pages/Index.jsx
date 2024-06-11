@@ -23,7 +23,7 @@ const Index = () => {
         {/* Chat Section */}
         <Box bg="gray.100" width="30%" p={4} display="flex" flexDirection="column" height="100%">
           <Text fontSize="lg" mb={4}>Chat</Text>
-          <VStack spacing={4} align="stretch" flex="1" overflowY="auto">
+          <VStack spacing={4} align="stretch" flex="1" overflowY="auto" height="calc(100vh - 200px)">
             <Box bg="white" p={4} borderRadius="md" boxShadow="md" flex="1" overflowY="auto">
               {messages.map((msg, index) => (
                 <Box key={index} bg={msg.type === "sent" ? "blue.100" : "gray.200"} p={2} borderRadius="md" mb={2}>
