@@ -1,6 +1,17 @@
-import { Box, Flex, Input, Text, VStack } from "@chakra-ui/react";
+import { useState } from "react";
+import { Button, Input, Box, Text, VStack, HStack } from "@chakra-ui/react";
 
 const Index = () => {
+  const [messages, setMessages] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleSendMessage = () => {
+    if (inputValue.trim() !== "") {
+      setMessages([...messages, { text: inputValue, type: "sent" }]);
+      setInputValue("");
+    }
+  };
+
   return (
     <Flex direction="column" height="100vh">
       {/* Navbar */}
@@ -12,7 +23,28 @@ const Index = () => {
         {/* Chat Section */}
         <Box bg="gray.100" width="30%" p={4}>
           <Text fontSize="lg" mb={4}>Chat</Text>
-          {/* Chat content goes here */}
+          <VStack spacing={4} align="stretch">
+            <Box bg="white" p={4} borderRadius="md" boxShadow="md" flex="1" overflowY="auto">
+              {messages.map((msg, index) => (
+                <Box key={index} bg={msg.type === "sent" ? "blue.100" : "gray.200"} p={2} borderRadius="md" mb={2}>
+                  <Text>{msg.text}</Text>
+                </Box>
+              ))}
+            </Box>
+            <HStack>
+              <Input
+                placeholder="Type your message..."
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") {
+                    handleSendMessage();
+                  }
+                }}
+              />
+              <Button onClick={handleSendMessage}>Send</Button>
+            </HStack>
+          </VStack>
         </Box>
 
         <Flex direction="column" flex="1" p={4}>
