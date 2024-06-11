@@ -1,19 +1,34 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
-
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+import { Box, Flex, Input, Text, VStack } from "@chakra-ui/react";
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
-      </VStack>
-    </Container>
+    <Flex direction="column" height="100vh">
+      {/* Navbar */}
+      <Box bg="blue.500" color="white" p={4}>
+        <Text fontSize="xl">Navbar</Text>
+      </Box>
+
+      <Flex flex="1">
+        {/* Chat Section */}
+        <Box bg="gray.100" width="30%" p={4}>
+          <Text fontSize="lg" mb={4}>Chat</Text>
+          {/* Chat content goes here */}
+        </Box>
+
+        <Flex direction="column" flex="1" p={4}>
+          {/* URL Bar */}
+          <Box mb={4}>
+            <Input placeholder="URL bar of preview" />
+          </Box>
+
+          {/* Preview Section */}
+          <Box bg="gray.200" flex="1" p={4}>
+            <Text fontSize="lg">Preview</Text>
+            {/* Preview content goes here */}
+          </Box>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 };
 
