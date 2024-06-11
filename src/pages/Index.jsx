@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Input, Box, Text, VStack, HStack } from "@chakra-ui/react";
+import { Box, Flex, Input, Text, VStack, HStack, Button } from "@chakra-ui/react";
 
 const Index = () => {
   const [messages, setMessages] = useState([]);
@@ -19,7 +19,7 @@ const Index = () => {
         <Text fontSize="xl">Navbar</Text>
       </Box>
 
-      <Flex flex="1">
+      <Flex flex="1" direction="row">
         {/* Chat Section */}
         <Box bg="gray.100" width="30%" p={4}>
           <Text fontSize="lg" mb={4}>Chat</Text>
@@ -47,7 +47,7 @@ const Index = () => {
           </VStack>
         </Box>
 
-        <Flex direction="column" flex="1" p={4}>
+        <Flex direction="column" flex="1" p={4} bg="white">
           {/* URL Bar */}
           <Box mb={4}>
             <Input placeholder="URL bar of preview" />
